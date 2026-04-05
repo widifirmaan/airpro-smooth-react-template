@@ -23,67 +23,67 @@ export default function App() {
     });
 
     // Initial state
-    tl.fromTo(".hero-text", 
+    tl.fromTo(".hero-text",
       { opacity: 1, y: 0, scale: 1 },
       { opacity: 0, y: -100, scale: 0.8, duration: 1 }
     )
-    .fromTo(".airpods-main",
-      { y: "100vh", scale: 0.5, rotate: -15 },
-      { y: "0vh", scale: 1, rotate: 0, duration: 2 },
-      "-=0.5"
-    )
-    .to(".airpods-main", {
-      scale: 1.2,
-      duration: 2
-    })
-    .to(".airpods-main", {
-      x: "25%",
-      rotate: 15,
-      duration: 2
-    })
-    .to(".video-bg", { opacity: 0, duration: 1 }, "-=1")
-    .to(".feature-1", {
-      opacity: 1,
-      x: 0,
-      duration: 1
-    }, "<")
-    .to({}, { duration: 2 }) // Hold feature 1
-    .to(".airpods-main", {
-      x: window.innerWidth < 768 ? "0%" : "-35%",
-      y: window.innerWidth < 768 ? "-15vh" : "0%",
-      rotate: -15,
-      duration: 3 // Slower transition to feature 2
-    })
-    .to(".feature-1", {
-      opacity: 0,
-      x: -20,
-      duration: 0.8
-    }, "-=3")
-    .to(".feature-2", {
-      opacity: 1,
-      x: 0,
-      duration: 1
-    }, "-=1.5")
-    .to({}, { duration: 2 }) // Hold feature 2
-    .to([".feature-1", ".feature-2"], {
-      opacity: 0,
-      y: -20,
-      duration: 0.5
-    })
-    .to(".airpods-main", {
-      scale: 3,
-      opacity: 0,
-      duration: 3 // Slower zoom out
-    })
-    .to(".video-bg", { opacity: 1, duration: 2 }, "-=2")
-    .fromTo(".final-text",
-      { opacity: 0, scale: 0.5 },
-      { opacity: 1, scale: 1, duration: 2 } // Slower text reveal
-    )
-    .to({}, { duration: 3 }); // Hold final text at the end
+      .fromTo(".airpods-main",
+        { y: "100vh", scale: 0.5, rotate: -15 },
+        { y: "0vh", scale: 1, rotate: 0, duration: 2 },
+        "-=0.5"
+      )
+      .to(".airpods-main", {
+        scale: 1.2,
+        duration: 2
+      })
+      .to(".airpods-main", {
+        x: "25%",
+        rotate: 15,
+        duration: 2
+      })
+      .to(".video-bg", { opacity: 0, duration: 1 }, "-=1")
+      .to(".feature-1", {
+        opacity: 1,
+        x: 0,
+        duration: 1
+      }, "<")
+      .to({}, { duration: 2 }) // Hold feature 1
+      .to(".airpods-main", {
+        x: window.innerWidth < 768 ? "0%" : "-35%",
+        y: window.innerWidth < 768 ? "-15vh" : "0%",
+        rotate: -15,
+        duration: 3 // Slower transition to feature 2
+      })
+      .to(".feature-1", {
+        opacity: 0,
+        x: -20,
+        duration: 0.8
+      }, "-=3")
+      .to(".feature-2", {
+        opacity: 1,
+        x: 0,
+        duration: 1
+      }, "-=1.5")
+      .to({}, { duration: 2 }) // Hold feature 2
+      .to([".feature-1", ".feature-2"], {
+        opacity: 0,
+        y: -20,
+        duration: 0.5
+      })
+      .to(".airpods-main", {
+        scale: 3,
+        opacity: 0,
+        duration: 3 // Slower zoom out
+      })
+      .to(".video-bg", { opacity: 1, duration: 2 }, "-=2")
+      .fromTo(".final-text",
+        { opacity: 0, scale: 0.5 },
+        { opacity: 1, scale: 1, duration: 2 } // Slower text reveal
+      )
+      .to({}, { duration: 3 }); // Hold final text at the end
 
     // H2 Chip Section Animations
-    gsap.fromTo(".h2-content > *", 
+    gsap.fromTo(".h2-content > *",
       { y: 50, opacity: 0 },
       {
         scrollTrigger: {
@@ -99,7 +99,7 @@ export default function App() {
       }
     );
 
-    gsap.fromTo(".h2-image", 
+    gsap.fromTo(".h2-image",
       { scale: 0.8, opacity: 0 },
       {
         scrollTrigger: {
@@ -115,7 +115,7 @@ export default function App() {
     );
 
     // Stats Section Animations
-    gsap.fromTo(".stats-title", 
+    gsap.fromTo(".stats-title",
       { y: 30, opacity: 0 },
       {
         scrollTrigger: {
@@ -130,7 +130,7 @@ export default function App() {
       }
     );
 
-    gsap.fromTo(".stat-card", 
+    gsap.fromTo(".stat-card",
       { y: 50, opacity: 0 },
       {
         scrollTrigger: {
@@ -181,9 +181,9 @@ export default function App() {
               playsInline
               className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover blur-[2px]"
             >
-              <source 
-                src="/background-video.mp4" 
-                type="video/mp4" 
+              <source
+                src="/background-video.mp4"
+                type="video/mp4"
               />
             </video>
             <div className="absolute inset-0 bg-black/40" />
@@ -204,8 +204,8 @@ export default function App() {
 
           {/* Animated AirPods */}
           <div ref={airpodsRef} className="airpods-main absolute inset-0 flex items-center justify-center z-20 pointer-events-none pt-40 md:pt-0">
-            <img 
-              src="https://cdn.prod.website-files.com/64e5e9c3cc050ce7725aeb4f/64e6327ca7d56667e9014da0_hero_airpods_left__e4mt0u0p25ea_xlarge.png" 
+            <img
+              src="https://cdn.prod.website-files.com/64e5e9c3cc050ce7725aeb4f/64e6327ca7d56667e9014da0_hero_airpods_left__e4mt0u0p25ea_xlarge.png"
               alt="AirPods Pro"
               className="w-[150px] md:w-[250px] drop-shadow-[0_0_50px_rgba(255,255,255,0.2)]"
               referrerPolicy="no-referrer"
@@ -218,7 +218,7 @@ export default function App() {
               <h3 className="text-4xl md:text-5xl lg:text-8xl font-bold tracking-tighter mb-4 leading-[0.9]">Active Noise <br className="hidden md:block" /> Cancellation</h3>
               <p className="text-base md:text-lg lg:text-2xl text-gray-400">Up to 2x more noise cancellation than the previous generation.</p>
             </div>
-            
+
             <div className="feature-2 opacity-0 translate-x-20 absolute bottom-10 md:bottom-1/4 left-6 right-6 md:left-auto md:right-20 max-w-3xl text-center md:text-right">
               <h3 className="text-4xl md:text-5xl lg:text-8xl font-bold tracking-tighter mb-4 leading-[0.9]">Personalized <br className="hidden md:block" /> Spatial Audio</h3>
               <p className="text-base md:text-lg lg:text-2xl text-gray-400">Sound that surrounds you, tuned specifically for your ears.</p>
@@ -255,8 +255,8 @@ export default function App() {
             </p>
           </div>
           <div className="h2-image relative group overflow-hidden rounded-3xl">
-            <img 
-              src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?auto=format&fit=crop&q=80&w=1000" 
+            <img
+              src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?auto=format&fit=crop&q=80&w=1000"
               alt="H2 Chip"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               referrerPolicy="no-referrer"
@@ -299,7 +299,7 @@ export default function App() {
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-white/5 text-center md:text-left">
-            <p>© 2026 Apple Inc. All rights reserved.</p>
+            <p>© 2026 Widifirmaan Inc. All rights reserved.</p>
           </div>
         </div>
       </footer>
