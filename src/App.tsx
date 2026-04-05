@@ -27,39 +27,18 @@ export default function App() {
     const featureScale = isMobile ? 0.5 : 0.8;
 
     // Initial state
-    tl.fromTo(".hero-text",
-      { opacity: 1, y: 0, scale: 1 },
-      { opacity: 0, y: -100, scale: 0.8, duration: 1 }
-    )
+    tl.set(".airpod-left", { opacity: 1, x: `-${splitX}`, z: 10 })
+      .set(".airpod-right", { opacity: 1, x: splitX, z: 20 })
+      .fromTo(".hero-text",
+        { opacity: 1, y: 0, scale: 1 },
+        { opacity: 0, y: -100, scale: 0.8, duration: 1 }
+      )
       .fromTo(".airpods-main",
         { y: "100vh", scale: 0.5, rotate: -15 },
         { y: "0vh", scale: 1, rotate: 0, duration: 2 },
         "-=0.5"
       )
-      .to(".airpod-left", { opacity: 1, duration: 0.1 }, "<") // Show left immediately as it rises
-      .to({}, { duration: 1 }) // Hold with 1 image
-      .to(".airpod-left", {
-        rotationY: 360,
-        x: `-${splitX}`,
-        z: 10, // Add slight depth to prevent clipping
-        duration: 2.5,
-        ease: "power2.inOut"
-      })
-      .fromTo(".airpod-right", {
-        opacity: 0,
-        rotationY: 180,
-        scale: 0.8,
-        x: "0%",
-        z: 0
-      }, {
-        opacity: 1,
-        rotationY: 0,
-        scale: 1,
-        x: splitX,
-        z: 20, // Bring right one slightly forward
-        duration: 2.5,
-        ease: "power2.inOut"
-      }, "<")
+      .to({}, { duration: 1.5 }) // Short hold with 2 images split
       .to(".airpods-main", {
         x: "25%",
         scale: featureScale, // Larger on desktop for features
