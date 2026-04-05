@@ -22,6 +22,9 @@ export default function App() {
       }
     });
 
+    const isMobile = window.innerWidth < 768;
+    const splitX = isMobile ? "15%" : "100%";
+
     // Initial state
     tl.fromTo(".hero-text",
       { opacity: 1, y: 0, scale: 1 },
@@ -32,15 +35,41 @@ export default function App() {
         { y: "0vh", scale: 1, rotate: 0, duration: 2 },
         "-=0.5"
       )
-      .to(".airpods-main", {
-        scale: 1.2,
-        duration: 2
+      .to(".airpod-left", { opacity: 1, duration: 0.1 }, "<") // Show left immediately as it rises
+      .to({}, { duration: 1 }) // Hold with 1 image
+      .to(".airpod-left", {
+        rotationY: 360,
+        x: `-${splitX}`,
+        duration: 2.5,
+        ease: "power2.inOut"
       })
+      .fromTo(".airpod-right", {
+        opacity: 0,
+        rotationY: 180,
+        scale: 0.8,
+        x: "0%"
+      }, {
+        opacity: 1,
+        rotationY: 0,
+        scale: 1,
+        x: splitX,
+        duration: 2.5,
+        ease: "power2.inOut"
+      }, "<")
       .to(".airpods-main", {
         x: "25%",
+        scale: 0.5, // Return to normal size (250px equivalent) for features
         rotate: 15,
         duration: 2
       })
+      .to(".airpod-left", {
+        x: "0%",
+        duration: 1
+      }, "<")
+      .to(".airpod-right", {
+        x: "0%",
+        duration: 1
+      }, "<")
       .to(".video-bg", { opacity: 0, duration: 1 }, "-=1")
       .to(".feature-1", {
         opacity: 1,
@@ -203,13 +232,21 @@ export default function App() {
           </div>
 
           {/* Animated AirPods */}
-          <div ref={airpodsRef} className="airpods-main absolute inset-0 flex items-center justify-center z-20 pointer-events-none pt-40 md:pt-0">
-            <img
-              src="https://cdn.prod.website-files.com/64e5e9c3cc050ce7725aeb4f/64e6327ca7d56667e9014da0_hero_airpods_left__e4mt0u0p25ea_xlarge.png"
-              alt="AirPods Pro"
-              className="w-[150px] md:w-[250px] drop-shadow-[0_0_50px_rgba(255,255,255,0.2)]"
-              referrerPolicy="no-referrer"
-            />
+          <div ref={airpodsRef} className="airpods-main absolute inset-0 flex items-center justify-center z-20 pointer-events-none pt-40 md:pt-0 [perspective:1000px]">
+            <div className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px] flex items-center justify-center [transform-style:preserve-3d] will-change-transform">
+              <img
+                src="https://cdn.prod.website-files.com/64e5e9c3cc050ce7725aeb4f/64e6327ca7d56667e9014da0_hero_airpods_left__e4mt0u0p25ea_xlarge.png"
+                alt="AirPods Pro Left"
+                className="airpod-left absolute w-full h-full object-contain drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] opacity-0 [backface-visibility:hidden]"
+                referrerPolicy="no-referrer"
+              />
+              <img
+                src="https://cdn.prod.website-files.com/64e5e9c3cc050ce7725aeb4f/64e632769f899497fc63d562_hero_airpods_right__dtlz95zz9ryq_xlarge.png"
+                alt="AirPods Pro Right"
+                className="airpod-right absolute w-full h-full object-contain drop-shadow-[0_0_50px_rgba(255,255,255,0.2)] opacity-0 [backface-visibility:hidden]"
+                referrerPolicy="no-referrer"
+              />
+            </div>
           </div>
 
           {/* Floating Features */}
@@ -299,7 +336,7 @@ export default function App() {
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-white/5 text-center md:text-left">
-            <p>© 2026 Widifirmaan Inc. All rights reserved.</p>
+            <p>© 2026 Apple Inc. All rights reserved.</p>
           </div>
         </div>
       </footer>
