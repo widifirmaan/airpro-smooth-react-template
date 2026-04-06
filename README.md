@@ -11,7 +11,7 @@ Experience the magic of AirPods Pro through a seamless visual narrative that unf
 
 | Hero Section | Animated Product Reveal | Feature Deep-Dive |
 | :---: | :---: | :---: |
-| ![Hero](https://picsum.photos/seed/airpods-hero/800/450) | ![Reveal](https://picsum.photos/seed/airpods-reveal/800/450) | ![Features](https://picsum.photos/seed/airpods-features/800/450) |
+| ![Hero](https://raw.githubusercontent.com/widifirmaan/airpro-smooth-react-template/refs/heads/main/screenshot/Screenshot%202026-04-06%20093116.png) | ![Reveal](https://raw.githubusercontent.com/widifirmaan/airpro-smooth-react-template/refs/heads/main/screenshot/Screenshot%202026-04-06%20092847.png) | ![Features](https://raw.githubusercontent.com/widifirmaan/airpro-smooth-react-template/refs/heads/main/screenshot/Screenshot%202026-04-06%20093101.png) |
 
 ---
 
